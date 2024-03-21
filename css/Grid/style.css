@@ -1,0 +1,99 @@
+:root {
+    --bg-calc-color-dark: rgba(51, 51, 71, 0.863);
+    --bg-calc-color-medium: rgba(175, 175, 175, 0.863);
+    --bg-calc-color-light:  rgba(228, 228, 228, 0.863);
+    --bg-calc-color-equity: rgb(241, 87, 87);
+}
+
+
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+.calc-container {
+    grid-column: 1fr;
+    grid-row: 1fr;
+    border: 1px ridge rgb(133, 133, 133);
+    border-radius: 16px;
+    box-shadow: 2px;
+    width: 18em;
+    height: 20em;
+    font-size: 1em;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    place-items: stretch;
+}
+
+.calc-results {
+    grid-column: 1 / 5;
+    grid-row: 1; 
+    display: grid;
+    border-radius: 16px 16px 0px 0px;
+    place-items: center end ;
+    box-sizing: border-box;
+    background-color: var(--bg-calc-color-dark);
+    color: white;
+    font-size: 2em;
+    padding-right: 12px;
+}
+
+.calc-sign-items {
+    grid-column: 1 / 5;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: 1fr;
+    background-color: var(--bg-calc-color-medium);
+    box-sizing: border-box;
+}
+
+.calc-sign-items > li {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px ridge rgb(133, 133, 133);
+}
+
+
+.calc-num-items {
+    grid-column: 1 / 5;
+    grid-row: 3 / 7;
+    border-radius: 0px 0px 16px 16px;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.calc-num-items > li {
+    list-style-type: none;
+    border: 1px ridge rgb(133, 133, 133);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-calc-color-light);
+}
+
+.calc-num-items > li:nth-child(10) {
+    border-radius: 0px 0px 0px 16px;
+}
+
+.calc-num-items > .sign-equity {
+    grid-column: 4 / 5;
+    grid-row: 1 / 5;
+    border-radius: 0px 0px 16px 0px;
+    background-color: var(--bg-calc-color-equity);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
