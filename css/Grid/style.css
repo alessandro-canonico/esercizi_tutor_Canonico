@@ -17,8 +17,8 @@ body {
 }
 
 .calc-container {
-    grid-column: 1fr;
-    grid-row: 1fr;
+    grid-column: 1;
+    grid-row: 1;
     border: 1px ridge rgb(133, 133, 133);
     border-radius: 16px;
     box-shadow: 2px;
@@ -42,7 +42,7 @@ body {
     box-sizing: border-box;
     background-color: var(--bg-calc-color-dark);
     color: white;
-    font-size: 2em;
+    font-size: em;
     padding-right: 12px;
 }
 
@@ -56,7 +56,7 @@ body {
     box-sizing: border-box;
 }
 
-.calc-sign-items > li {
+.calc-sign-items > li { 
     list-style-type: none;
     display: flex;
     justify-content: center;
