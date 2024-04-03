@@ -1,0 +1,44 @@
+body {
+  background-color: blue;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: rgb(116, 104, 126);
+  padding: 24px 0px;
+  margin: 0;
+}
+
+.nav-items {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+
+}
+
+li {
+  display: inline-block;
+
+}
+
+li a {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.nav-search {
+    margin: 0px 0px 0px 780px
+}
+
+.nav-search input {
+    padding: 8px;
+    margin: 4px 8px 4px 0px;
+}
+
+.nav-search button {
+    padding: 8px;
+    margin: 4px 4px 4px 4px;
+} 
