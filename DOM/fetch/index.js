@@ -7,7 +7,7 @@ async function fetchData () {
 
         const img = card.imagesrc
         const imgCard = document.querySelector(".img")
-        imgCard.setAttribute("src", img)
+        imgCard.setAttribute("src", `https://ringsdb.com${img}`)
 
         const name = card.name
         const nameTitle = document.querySelector(".name")
