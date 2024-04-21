@@ -1,6 +1,7 @@
 import { AlertClock } from "./AlertClock";
 import { Clock } from "./Clock";
 import { Counter } from "./Counter";
+import { MouseClicker } from "./MouseClicker";
 import { Welcome } from "./Welcome";
 
 export function App() {
@@ -16,6 +17,8 @@ export function App() {
       <Counter initialValue={1} incrementValue={(c) => c+1} decrementValue={(c) => c-1}/>
 
       <Clock/>
+
+      <MouseClicker/>
     </div>
   );
 }
