@@ -2,7 +2,7 @@ export function AlertClock() {
   function showDate() {
     const currentDate = new Date();
 
-    alert(`The current date is ${currentDate.toLocaleTimeString()} `);
+    alert(`The current date is ${currentDate.toLocaleDateString()}`);
   }
 
   return (

@@ -2,7 +2,7 @@ import { Age } from "./Age";
 
 export function Welcome ({ name, age }) {
     return ( <div>
-        <p>Welcome, { name }</p>
+        <h1 className="welcome">Welcome, { name }</h1>
         {<Age age={age}/>}
         {age >= 18 && <Age age={age}/>}
         {age && <Age age={age}/>}
