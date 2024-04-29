@@ -1,4 +1,5 @@
 import { Color } from "./Color";
+import { Colors } from "./Colors";
 import { FocusableInput } from "./FocusableInput";
 import { Login } from "./Login";
 import { UncontrolledLogin } from "./UncontrolledLogin";
@@ -19,6 +20,9 @@ export function App() {
 
       <h2>Color</h2>
       <Color color={[{ id: 1, name: `green` }]} />
+
+      <h2>Colors</h2>
+      <Colors items={[{ id: 1, name: `green` }, { id: 2, name: `red` }, { id: 3, name: `yellow` }]} />
     </div>
   );
 }
