@@ -30,18 +30,20 @@ export function Login () {
         setData(createData())
     }
 
-    function handleLog () {
-        console.log(data);
+    function handleLog (event) {
+        event.preventDefault()
+
+		console.log(`Log succesfully`, data)
     }
 
 
     return (
-        <div>
+        <form onSubmit={handleLog}>
             <input name="username"  type="text" value={data.username} onChange={handleInput}/>
             <input name="password" type="password" value={data.password} id="password" onChange={handleInput}/>
             <input name="remember" type="checkbox" checked={data.remember} id="remember" onChange={handleInput}/>
-            <button disabled={!data.username || !data.password || !data.remember} onClick={handleLog}>Login</button>
-            <button onClick={resetInput}>Reset</button>
-        </div>
+            <button disabled={!data.username || !data.password}>Login</button>
+            <button type="reset" onClick={resetInput}>Reset</button>
+        </form>
     )
 }
