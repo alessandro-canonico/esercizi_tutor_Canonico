@@ -16,6 +16,7 @@ export function App() {
 
       <Counter initialValue={1} incrementValue={(c) => c+1} decrementValue={(c) => c-1}/>
 
+      <h2>Clock:</h2>
       <Clock/>
 
       <MouseClicker/>

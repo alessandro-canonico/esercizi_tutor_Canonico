@@ -1,0 +1,16 @@
+$fontColor: red;
+$fontStyle: Helvetica;
+$fontSize: 24px;
+
+
+.clock {
+    color: $fontColor;
+    font-size: $fontSize;
+    font-style: $fontStyle;
+    border: 2px solid black;
+    text-align: center;
+
+    p {
+        color: black;
+    }
+}

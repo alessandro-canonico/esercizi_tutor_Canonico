@@ -8,5 +8,10 @@ export function Clock () {
         setDate(new Date())}, 1000)
     }, [])
 
-    return <h2>Current time: {date.toLocaleTimeString()}</h2>
+    return (
+        <div className="clock">
+            <h4>Current time:</h4>
+            <p>{date.toLocaleTimeString()}</p> 
+        </div>
+    ) 
 }
