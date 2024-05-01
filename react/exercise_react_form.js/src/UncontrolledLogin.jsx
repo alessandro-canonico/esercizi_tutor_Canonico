@@ -4,7 +4,7 @@ export function UncontrolledLogin() {
 
     const formData = new FormData(event.target);
 
-/*     const username = event.target.elements.namedItem("username").value;
+    /*     const username = event.target.elements.namedItem("username").value;
     const password = event.target.elements.namedItem("password").value;
     const checkbox = event.target.elements.namedItem("remember").checked; */
 
@@ -18,12 +18,14 @@ export function UncontrolledLogin() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input name="username" type="text" />
-      <input name="password" type="password" />
-      <input name="remember" type="checkbox" />
-      <button>Login</button>
-      <button type="reset">Reset</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit} className="m-1">
+        <input name="username" type="text" />
+        <input name="password" type="password" />
+        <input name="remember" type="checkbox" />
+        <button>Login</button>
+        <button type="reset">Reset</button>
+      </form>
+    </div>
   );
 }
