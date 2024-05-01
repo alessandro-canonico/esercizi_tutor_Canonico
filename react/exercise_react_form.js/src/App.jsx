@@ -2,6 +2,7 @@ import { Color } from "./Color";
 import { Colors } from "./Colors";
 import { FocusableInput } from "./FocusableInput";
 import { Login } from "./Login";
+import { TodoList } from "./TodoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 
 export function App() {
@@ -23,6 +24,9 @@ export function App() {
 
       <h2>Colors</h2>
       <Colors items={[{ id: 1, name: `green` }, { id: 2, name: `red` }, { id: 3, name: `yellow` }]} />
+
+      <h2>ToDo List:</h2>
+      <TodoList/>
     </div>
   );
 }

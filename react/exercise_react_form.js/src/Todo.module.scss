@@ -1,0 +1,28 @@
+.container {
+    width: 30rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    input {
+        margin: 4px;
+    }
+
+    button {
+        margin: 4px;
+        width: 20%;
+        border-radius: 2px;
+    }
+}
+
+.li {
+    margin: 4px;
+    padding: 4px;
+}
+
+.li:hover {
+    border-bottom: 1px solid;
+}
