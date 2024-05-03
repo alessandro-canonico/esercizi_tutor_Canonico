@@ -1,9 +1,9 @@
-import { Color } from "./Color";
-import { Colors } from "./Colors";
-import { FocusableInput } from "./FocusableInput";
-import { Login } from "./Login";
-import { TodoList } from "./TodoList";
-import { UncontrolledLogin } from "./UncontrolledLogin";
+import { Color } from "./Rendering List/Color";
+import { Colors } from "./Rendering List/Colors";
+import { FocusableInput } from "./Refs/FocusableInput";
+import { Login } from "./Controlled Forms/Login";
+import { TodoList } from "./Rendering List/TodoList";
+import { UncontrolledLogin } from "./Uncontrolled Forms/UncontrolledLogin";
 
 export function App() {
   return (
