@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { GitHubUser } from "./GitHubUser";
 
 export function App () {
+    const [username, setUsername] = useState("")
     return (
         <div>
-            <GitHubUser username="alessandro-canonico"/>
+            <input type="text" value={username} onChange={(e) => {setUsername(e.target.value)}} />
+            <ul>
+                <GitHubUser username={username}/>
+            </ul>
         </div>
     )
 }
