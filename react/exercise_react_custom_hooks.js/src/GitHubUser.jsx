@@ -11,8 +11,8 @@ export function GitHubUser ({username}) {
         <div>
             <button onClick={handleFetch}>Click to fetch user</button>
             {loading && <h1>Loading...</h1>}
-            {data && <h1>{data.name}</h1> }
             {error && <h1>Error</h1> }
+            {data && <h1>{data.login}</h1> }
         </div>
      )
 } 
