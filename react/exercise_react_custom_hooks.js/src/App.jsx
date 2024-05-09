@@ -1,16 +1,17 @@
-import { Counter } from "./Counter";
+
+import { SWRConfig } from "swr";
 import { GitHubUser } from "./GitHubUser";
-import { Login } from "./Login";
+
+const fetcher = (url) => fetch(url).then((response) => response.json())
 
 export function App () {
     return (
+        <SWRConfig value={{fetcher}}>
         <div>
-        <Counter/>
-        <hr />
-        <Login/>
-        <hr />
         <GitHubUser username="alessandro-canonico"/>
         </div>
+        </SWRConfig>
+
 
     )
 }
