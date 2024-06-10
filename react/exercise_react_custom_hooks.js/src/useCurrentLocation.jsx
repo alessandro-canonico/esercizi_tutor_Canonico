@@ -1,29 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from 'react';
 
-export function useCurrentLocation() {
-  const [userLocation, setUserLocation] = useState(null);
+export function useCurrentLocation () {
+  const [location, setLocation] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  function getUserLocation() {
-    setLoading(true);
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const { latitude, longitude } = position.coords;
-        setUserLocation(latitude, longitude)
-      }, (error) => {
-        setError(error)
-      })
-    } else {
-      alert(`Access to user position denied`)
+  const getLocation = useCallback(() => {
+    if (!navigator.geolocation) {
+      setError('Geolocation is not supported by your browser');
+      return;
     }
-  }
 
+    setLoading(true);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+        setLoading(false);
+      },
+      (err) => {
+        setError(err.message);
+        setLoading(false);
+      }
+    );
+  }, []);
 
-  return {
-    userLocation,
-    getLocation: getUserLocation,
-    error,
-    loading
-  }
-}
+  useEffect(() => {
+    getLocation();
+  }, [getLocation]);
+
+  return { location, error, loading, getLocation };
+};
+
+export default useCurrentLocation;

@@ -1,27 +1,20 @@
 import { useCurrentLocation } from "./useCurrentLocation";
 
 export function CurrentLocation() {
-  const { userLocation, error, loading, getLocation } = useCurrentLocation();
-
-  function showLocation () {
-    getLocation()
-  }
+  const { location, error, loading, getLocation } = useCurrentLocation();
 
   return (
     <div>
-      <div> {error && <h1>Error</h1>}</div>
-      <div> {loading && <h1>Loading...</h1>}</div>
-
-      <div>
-        {userLocation && (
-          <div>
-            <button onClick={showLocation}>Show User Location</button>
-            <h1>User Location:</h1>
-            <p>User latitude: {userLocation.latitude}</p>
-            <p>User longitude: {userLocation.longitude}</p>
-          </div>
-        )}
-      </div>
+      <h1>Your Current Location</h1>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      {location && (
+        <div>
+          <p>Latitude: {location.latitude}</p>
+          <p>Longitude: {location.longitude}</p>
+        </div>
+      )}
+      <button onClick={getLocation}>Get Current Location</button>
     </div>
   );
-}
+};
