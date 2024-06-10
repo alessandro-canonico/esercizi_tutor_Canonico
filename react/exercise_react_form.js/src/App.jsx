@@ -4,6 +4,7 @@ import { FocusableInput } from "./Refs/FocusableInput";
 import { Login } from "./Controlled Forms/Login";
 import { TodoList } from "./Rendering List/TodoList";
 import { UncontrolledLogin } from "./Uncontrolled Forms/UncontrolledLogin";
+import { Counter } from "./Refs/Counter"
 
 export function App() {
   return (
@@ -27,6 +28,9 @@ export function App() {
 
       <h2>ToDo List:</h2>
       <TodoList/>
+
+      <h2>Counter</h2>
+      <Counter initialValue={0}/>
     </div>
   );
 }
