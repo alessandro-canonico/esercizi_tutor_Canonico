@@ -30,10 +30,39 @@ type Planet = {
     },
   ];
 
-  app.get("/planets", (req, res) => {
+  app.get("/api/planets", (req, res) => {
     res.status(200).json(planets)
     console.log(planets);
-  } )
+  })
+
+  app.get("/api/planets/:id", (req, res) => {
+    const {id} = req.params
+    const planet = planets.find((planet) => planet.id === Number(id))
+    res.status(200).json(planet)
+    console.log(planet);
+  })
+
+  app.post("/api/planets", (req,res) => {
+    const {id, name} = req.body
+    const newPlanet = {id, name}
+    planets = [...planets, newPlanet]
+    console.log(newPlanet);
+    res.status(201).json({ msg: 'Pianeta creato con successo' });
+  })
+
+  app.put("/api/planets/:id", (req, res) => {
+    const {id} = req.params
+    const {name} = req.body
+    planets = planets.map(p => p.id === Number(id) ? ({...p, name}) : p )
+    res.status(200).json({msg: "pianeta aggiornato"})
+  })
+
+  app.delete("/api/planets/:id", (req, res) => {
+    const {id} = req.params
+    planets = planets.filter(p => p.id !== Number(id))
+    res.status(200).json({ msg: 'eliminato' });
+  })
+
 
 
 app.listen(port, () => {
