@@ -2,7 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import cors from "cors"
 import morgan from "morgan"
-import Joi from "joi"
+import {getAll, getOneById, create, updateById, deleteById} from "./controllers/planets"
 import "express-async-errors"
 
 const app = express()
@@ -31,50 +31,15 @@ type Planet = {
     },
   ];
 
-  const schema = Joi.object({
-    id: Joi.number().integer(),
-    name : Joi.string().required()
-  })
-  app.get("/api/planets", (req, res) => {
-    res.status(200).json(planets)
-    console.log(planets);
-  })
+  app.get("/api/planets", getAll)
 
-  app.get("/api/planets/:id", (req, res) => {
-    const {id} = req.params
-    const planet = planets.find((planet) => planet.id === Number(id))
-    res.status(200).json(planet)
-    console.log(planet);
-  })
+  app.get("/api/planets/:id", getOneById)
 
-  app.post("/api/planets", (req,res) => {
-    const {id, name} = req.body
-    const newPlanet = {id, name}
-    const validateNew = schema.validate(newPlanet)
+  app.post("/api/planets", create)
 
-    if (validateNew.error) {
-      return res.status(400).json({message: validateNew.error})
-    } else {
-      planets = [...planets, newPlanet]
-      console.log(newPlanet);
-      res.status(201).json({ msg: 'Pianeta creato con successo' });
-    }
-  })
+  app.put("/api/planets/:id", updateById )
 
-  app.put("/api/planets/:id", (req, res) => {
-    const {id} = req.params
-    const {name} = req.body
-    planets = planets.map(p => p.id === Number(id) ? ({...p, name}) : p )
-    res.status(200).json({msg: "pianeta aggiornato"})
-  })
-
-  app.delete("/api/planets/:id", (req, res) => {
-    const {id} = req.params
-    planets = planets.filter(p => p.id !== Number(id))
-    res.status(200).json({ msg: 'eliminato' });
-  })
-
-
+  app.delete("/api/planets/:id", deleteById )
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
