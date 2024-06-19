@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import cors from "cors"
 import morgan from "morgan"
+import Joi from "joi"
 import "express-async-errors"
 
 const app = express()
@@ -30,6 +31,10 @@ type Planet = {
     },
   ];
 
+  const schema = Joi.object({
+    id: Joi.number().integer(),
+    name : Joi.string().required()
+  })
   app.get("/api/planets", (req, res) => {
     res.status(200).json(planets)
     console.log(planets);
@@ -45,9 +50,15 @@ type Planet = {
   app.post("/api/planets", (req,res) => {
     const {id, name} = req.body
     const newPlanet = {id, name}
-    planets = [...planets, newPlanet]
-    console.log(newPlanet);
-    res.status(201).json({ msg: 'Pianeta creato con successo' });
+    const validateNew = schema.validate(newPlanet)
+
+    if (validateNew.error) {
+      return res.status(400).json({message: validateNew.error})
+    } else {
+      planets = [...planets, newPlanet]
+      console.log(newPlanet);
+      res.status(201).json({ msg: 'Pianeta creato con successo' });
+    }
   })
 
   app.put("/api/planets/:id", (req, res) => {
