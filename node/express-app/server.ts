@@ -14,6 +14,12 @@ import {
   createImg
 } from "./controllers/planets";
 
+import {
+  login,
+  signup,
+  logout
+} from "./controllers/users"
+
 const app = express();
 dotenv.config();
 const port = process.env.port;
@@ -44,6 +50,12 @@ app.put("/api/planets/:id", updateById);
 app.delete("/api/planets/:id", deleteById);
 
 app.post("/api/planets/:id/image", upload.single("image"), createImg);
+
+app.post("/api/users/login", login)
+app.post("/api/users/signup", signup )
+app.get("/api/users/logout", logout )
+
+
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
