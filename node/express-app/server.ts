@@ -4,6 +4,7 @@ import cors from "cors";
 import morgan from "morgan";
 import "express-async-errors";
 import multer from "multer";
+import "./passport"
 
 import {
   getAll,
@@ -19,6 +20,8 @@ import {
   signup,
   logout
 } from "./controllers/users"
+
+import { authorize } from "./authorize";
 
 const app = express();
 dotenv.config();
@@ -53,8 +56,7 @@ app.post("/api/planets/:id/image", upload.single("image"), createImg);
 
 app.post("/api/users/login", login)
 app.post("/api/users/signup", signup )
-app.get("/api/users/logout", logout )
-
+app.get("/api/users/logout", authorize, logout )
 
 
 app.listen(port, () => {
